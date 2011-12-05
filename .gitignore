@@ -1,0 +1,11 @@
+
+.emacs.desktop
+.ido.last
+.smex-items
+elpa/
+eproject.lst
+ac-comphist.dat
+places
+swank/
+url/
+
