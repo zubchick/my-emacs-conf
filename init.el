@@ -9,9 +9,14 @@
 ;; Add in your own as you wish:
 (defvar my-packages '(starter-kit ;; required
                       starter-kit-lisp starter-kit-bindings starter-kit-eshell ;; sk plugins
-                      clojure-mode clojure-test-mode ;; clojure
+                      clojure-mode clojure-test-mode rainbow-delimiters;; clojure
+                      coffee-mode
+                      
                       magit smex tabbar tabbar-ruler find-things-fast ;; tools
-                      pony-mode python-mode)
+                      pony-mode python-mode pymacs
+                      flymake-csslint flymake-cursor
+                      js2-mode  markdown-mode rainbow-mode
+                      yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -22,16 +27,23 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
+ '(browse-url-browser-function (quote browse-default-macosx-browser))
  '(column-number-mode t)
  '(current-language-environment "UTF-8")
- '(custom-enabled-themes (quote (tango-shmango)))
- '(custom-safe-themes (quote ("bb2393dd429b87504b9fc974ad40ad75b96c0a92" default)))
- '(custom-theme-load-path (quote ("~/.emacs.d/zubchick" custom-theme-directory t)))
+ '(custom-safe-themes (quote ("7fe1e3de3e04afc43f9a3d3a8d38cd0a0efd9d4c" default)))
  '(default-input-method "russian-computer")
+ '(desktop-path (quote ("." "~/.emacs.d/" "~")))
  '(display-time-mode t)
+ '(global-hi-lock-mode t)
+ '(initial-frame-alist (quote ((width . 168) (height . 47))))
+ '(ispell-program-name "/usr/local/bin/aspell")
  '(menu-bar-mode t)
  '(ns-alternate-modifier (quote none))
  '(ns-command-modifier (quote meta))
+ '(scroll-step 1)
+ '(sgml-basic-offset 4)
+ '(sgml-mode-hook (quote ((lambda nil (flymake-mode nil) (flyspell-mode nil)))))
  '(visible-bell nil)
  '(x-select-enable-clipboard t))
 (custom-set-faces
@@ -40,3 +52,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'dired-find-alternate-file 'disabled nil)

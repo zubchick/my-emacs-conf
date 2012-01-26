@@ -1,5 +1,5 @@
 
-.emacs.desktop
+.emacs.desktop*
 .ido.last
 .smex-items
 elpa/
@@ -8,4 +8,3 @@ ac-comphist.dat
 places
 swank/
 url/
-

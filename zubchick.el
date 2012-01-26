@@ -10,34 +10,35 @@
  '(mac-option-modifier 'none)
  '(visible-bell nil)
  '(x-select-enable-clipboard t)
+ '(ispell-program-name "/usr/local/bin/aspell") ;; brew install aspell --lang=en,ru
  '(initial-frame-alist '((width . 168) (height . 47))) ;; frame window size
+ '(scroll-step 1) ; шаг скролла
+ '(browse-url-browser-function 'browse-default-macosx-browser)
  )
 (set-face-font 'default "Monaco-14")
 
-;; clojure hack
-(setenv "PATH" (concat "/Users/zubchick/bin:" (shell-command-to-string "echo $PATH")))
 
-(global-hl-line-mode 1) ; подсветка текущей строки
+(global-hl-line-mode t) ;; подсветка текущей строки
 
 ;; DeskTop
-(desktop-save-mode 1)
+(desktop-save-mode t)
 (setq history-length 250)
 (add-to-list 'desktop-globals-to-save 'file-name-history)
-(add-to-list 'desktop-modes-not-to-save 'dired-mode)
 (add-to-list 'desktop-modes-not-to-save 'Info-mode)
 (add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
-(add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 
 ;; whitespace
-(setq py-ident-offset 4
-      py-smart-indentation t
-      whitespace-style '(trailing lines-tail space-after-tab space-before-tab)
-      whitespace-line-column 80)
-
 (require 'whitespace)
+(setq whitespace-line-column 160)
+
+;; fci
+(setq-default fill-column 80)
+(setq fci-rule-width 1)
+(setq fci-rule-color "lightblue")
+(require 'fill-column-indicator)
+
 
 ;;  ido-styled
-(setq ido-save-directory-list-file "~/.emacs.d/.ido.last")
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'guess)
 
@@ -51,10 +52,10 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; отключаем СТРЕЛОЧКИ
-;; (global-unset-key (kbd "<right>"))
-;; (global-unset-key (kbd "<left>"))
-;; (global-unset-key (kbd "<up>"))
-;; (global-unset-key (kbd "<down>"))
+(global-unset-key (kbd "<right>"))
+(global-unset-key (kbd "<left>"))
+(global-unset-key (kbd "<up>"))
+(global-unset-key (kbd "<down>"))
 
 (global-set-key [f2] 'kmacro-call-macro)
 (global-set-key [f3] 'kmacro-start-macro-or-insert-counter)
@@ -73,7 +74,7 @@
 (defun copy-line (&optional arg)
   " copy line from current point to the end of line"
   (interactive)
-  (toggle-read-only 1)
+  (toggle-read-only t)
   (kill-line arg)
   (toggle-read-only 0))
 (setq-default kill-read-only-ok t)
@@ -100,7 +101,7 @@ to the previously saved position"
 (global-set-key (kbd "\e\e?") 'save-point-only)
 
 ;; Прокрутка
-(setq scroll-step 1) ; шаг скролла
+
 
 ;; tabs
 (require 'tabbar)
@@ -121,7 +122,7 @@ to the previously saved position"
 (global-set-key (kbd "C-.") 'tabbar-forward-tab)
 (global-set-key (kbd "C-,") 'tabbar-backward-tab)
 
-;; uniquify - у файлов с одинаковым именем пишется еще и папка
+;; uniquify - for files with same names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
@@ -129,6 +130,8 @@ to the previously saved position"
 (autoload 'magit-status "magit" nil t)
 
 ;; clojure
+(setenv "PATH" (concat "/Users/zubchick/bin:" (shell-command-to-string "echo $PATH"))) ; hack
+
 (defun slime-java-describe (symbol-name)
   "Get details on Java class/instance at point."
   (interactive (list (slime-read-symbol-name "Java Class/instance: ")))
@@ -160,7 +163,8 @@ to the previously saved position"
 
 (defun my-clojure-mode-hook ()
   "Hook for Clojure mode"
-  (whitespace-mode 1)
+  (whitespace-mode t)
+  (fci-mode t)
   (clojure-test-maybe-enable)
   (define-key slime-mode-map (kbd "C-c d") 'slime-java-describe)
   (define-key slime-repl-mode-map (kbd "C-c d") 'slime-java-describe)
@@ -171,44 +175,44 @@ to the previously saved position"
 (add-hook 'clojure-mode-hook 'my-clojure-mode-hook)
 (add-hook 'slime-repl-mode-hook (lambda () (paredit-mode t)))
 
+(eval-after-load 'flymake '(require 'flymake-cursor))
+
 ;; python
-(add-to-list 'load-path "~/.emacs.d/elpa/pysmell-0.7.2/")
-(add-to-list 'load-path "~/.emacs.d/elpa/pymacs-0.24/")
-(require 'pysmell)
-(add-hook 'python-mode-hook (lambda () (pysmell-mode 1)))
+(defun my-python-hook ()
+  (whitespace-mode t)
+  (fci-mode t)
+  (setq py-ident-offset 4
+        py-smart-indentation t)
+
+  (require 'linum)
+  (linum-mode t)
+
+  ;; (global-font-lock-mode t)
+  (setq font-lock-maximum-decoration t)
+
+
+  ;; flymake
+  (when (load "flymake" t)
+    (defun flymake-pylint-init ()
+      (list "~/.emacs.d/zubchick/lintrunner.py"
+            (list buffer-file-name)))
+    (add-to-list 'flymake-allowed-file-name-masks
+                 '("^[^\*]+\\.py$" flymake-pylint-init)))
+  (add-hook 'find-file-hook 'flymake-find-file-hook)
+
+  ;;idle-highlight
+  (idle-highlight-mode t)
+
+  ;;yas
+  (yas/load-directory "~/.emacs.d/snippets"))
+
 
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 (setq interpreter-mode-alist (cons '("python" . python-mode)
                                    interpreter-mode-alist))
 (autoload 'python-mode "python-mode" "Python editing mode." t)
-(global-font-lock-mode t)
-(setq font-lock-maximum-decoration t)
+(add-hook 'python-mode-hook 'my-python-hook)
 
-(require 'flymake-cursor)
-(when (load "flymake" t)
-  (defun flymake-pylint-init ()
-    (list "~/.emacs.d/zubchick/lintrunner.py"
-          (list buffer-file-name)))
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("^[^\*]+\\.py$" flymake-pylint-init)))
-(add-hook 'find-file-hook 'flymake-find-file-hook)
-
-
-;; coffee scrip
-(setq-default tab-width 2)
-(defun coffee-custom ()
-  "coffee-mode-hook"
-;;  (set (make-local-variable 'tab-width) 2)
-  (coffee-cos-mode t)
-
-  (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
-  (define-key coffee-mode-map [(meta R)] 'coffee-compile-region)
-  (setq coffee-command "/usr/local/bin/coffee"))
-
-(add-hook 'coffee-mode-hook
-  '(lambda() (coffee-custom)))
-
-;; (add-hook 'coffee-mode-hook 'flymake-coffee-load)
 
 (require 'imenu)
 (defun ido-goto-symbol ()
@@ -243,4 +247,60 @@ to the previously saved position"
       (goto-char position))))
 
 (global-set-key (kbd "C-t") 'ido-goto-symbol)
-                 
+
+;; uniquify – for uniq buffer names
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
+;; html
+;; brew install xmlstarlet
+(add-hook 'css-mode-hook 'rainbow-mode)
+(add-hook 'html-mode-hook (lambda () (flyspell-mode 0)))
+
+;; rainbow partness
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
+
+;; deploy.sh
+(defun deploy-message (process event)
+  (message "Deploing project... Done."))
+
+(defun my-deploy ()
+  (interactive)
+  (message "Deploing project... ")
+  (save-buffer (current-buffer))
+  (start-process-shell-command "deploy-process" "*Deploy*" "deploy.sh")
+  (set-process-sentinel (get-process "deploy-process") 'deploy-message))
+
+(global-set-key (kbd "C-c M-b") 'my-deploy)
+
+
+;; lang switcher
+;; http://ru-emacs.livejournal.com/82512.html
+(mapcar*
+ (lambda (r e) ; R and E are matching Russian and English keysyms
+   ; iterate over modifiers
+   (mapc (lambda (mod)
+    (define-key input-decode-map
+      (vector (list mod r)) (vector (list mod e))))
+  '(control meta super hyper))
+   ; finally, if Russian key maps nowhere, remap it to the English key without
+   ; any modifiers
+   (define-key local-function-key-map (vector r) (vector e)))
+   "йцукенгшщзхъфывапролджэячсмитьбю"
+   "qwertyuiop[]asdfghjkl;'zxcvbnm,.")
+
+;; coffee script
+(defun my-coffee ()
+  (setq coffee-command "/usr/local/bin/coffee")
+  (fci-mode t)
+  (define-key coffee-mode-map (kbd "C-c C-b") 'coffee-compile-buffer)
+  (define-key coffee-mode-map (kbd "C-c C-f") 'coffee-compile-file)
+  (define-key coffee-mode-map (kbd "C-c C-r") 'coffee-compile-region)
+  (linum-mode t))
+
+(add-hook 'coffee-mode-hook 'my-coffee)
+
+;; markdown
+(setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
