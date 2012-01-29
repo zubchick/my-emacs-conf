@@ -100,9 +100,6 @@ to the previously saved position"
 (global-set-key (kbd "\e\e/") 'save-point-and-switch)
 (global-set-key (kbd "\e\e?") 'save-point-only)
 
-;; Прокрутка
-
-
 ;; tabs
 (require 'tabbar)
 (setq EmacsPortable-global-tabbar 't)
