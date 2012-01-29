@@ -1,7 +1,14 @@
 # Emacs configuration for Mac Os & Emacs24
 
+## Installation
+    git clone git://github.com/zubchick/my-emacs-conf.git zubchick-emacs
+    mv ~/.emacs.d ~/.emacs.d.old
+    mv zubchick-emacs ~/.emacs.d
+    mv ~/.emacs.d/zubchick ~/.emacs.d/$(whoami)
+    mv ~/.emacs.d/zubchick.el ~/.emacs.d/$(whoami).el
+
 ## Custom shortcuts
-cmd == M
+Mac cmd key is a emacs Meta key
 
 ### in git repo
 * M-p - fuzzy find file
