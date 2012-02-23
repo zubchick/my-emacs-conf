@@ -139,7 +139,8 @@ to the previously saved position"
     (unless (eq (current-buffer) (window-buffer))
       (pop-to-buffer (current-buffer) t))
     (goto-char (point-max))
-    (insert (concat "(clojure.contrib.repl-utils/show " symbol-name ")"))
+    (insert (concat "(clojure.pprint/pprint (clojure.reflect/reflect "
+                    symbol-name "))"))
     (when symbol-name
       (slime-repl-return)
       (other-window 1))))
@@ -153,13 +154,15 @@ to the previously saved position"
   (unless (eq (current-buffer) (window-buffer))
     (pop-to-buffer (current-buffer) t))
   (goto-char (point-max))
-  (insert (concat "(clojure.contrib.javadoc/javadoc " symbol-name ")"))
+  (insert (concat "(clojure.java.javadoc/javadoc " symbol-name ")"))
   (when symbol-name
     (slime-repl-return)
     (other-window 1)))
 
 (defun my-clojure-mode-hook ()
   "Hook for Clojure mode"
+  (setq slime-net-coding-system 'utf-8-unix)
+  (idle-highlight-mode t)
   (whitespace-mode t)
   (fci-mode t)
   (clojure-test-maybe-enable)
@@ -167,7 +170,8 @@ to the previously saved position"
   (define-key slime-repl-mode-map (kbd "C-c d") 'slime-java-describe)
   (define-key slime-mode-map (kbd "C-c D") 'slime-javadoc)
   (define-key slime-repl-mode-map (kbd "C-c D") 'slime-javadoc)
-  (define-key clojure-mode-map (kbd "RET") 'paredit-newline))
+  (define-key clojure-mode-map (kbd "RET") 'paredit-newline)
+  (global-set-key "\C-cs" 'slime-selector))
 
 (add-hook 'clojure-mode-hook 'my-clojure-mode-hook)
 (add-hook 'slime-repl-mode-hook (lambda () (paredit-mode t)))
@@ -291,6 +295,7 @@ to the previously saved position"
 ;; coffee script
 (defun my-coffee ()
   (setq coffee-command "/usr/local/bin/coffee")
+  (require 'fill-column-indicator)
   (fci-mode t)
   (define-key coffee-mode-map (kbd "C-c C-b") 'coffee-compile-buffer)
   (define-key coffee-mode-map (kbd "C-c C-f") 'coffee-compile-file)
@@ -298,6 +303,7 @@ to the previously saved position"
   (linum-mode t))
 
 (add-hook 'coffee-mode-hook 'my-coffee)
+(add-hook 'coffee-mode-hook 'flymake-coffee-load)
 
 ;; markdown
 (setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
