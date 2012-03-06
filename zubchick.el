@@ -1,24 +1,5 @@
 ;;; zubchick.el - zubchick's emacs config
-
-(custom-set-variables
- '(column-number-mode t)
- '(current-language-environment "UTF-8")
- '(default-input-method "russian-computer")
- '(display-time-mode t)
- '(menu-bar-mode t)
- '(mac-command-modifier 'meta) ; cmd - meta
- '(mac-option-modifier 'none)
- '(visible-bell nil)
- '(x-select-enable-clipboard t)
- '(ispell-program-name "/usr/local/bin/aspell") ;; brew install aspell --lang=en,ru
- '(initial-frame-alist '((width . 168) (height . 47))) ;; frame window size
- '(scroll-step 1) ; шаг скролла
- '(browse-url-browser-function 'browse-default-macosx-browser)
- )
 (set-face-font 'default "Monaco-14")
-
-
-(global-hl-line-mode t) ;; подсветка текущей строки
 
 ;; DeskTop
 (desktop-save-mode t)

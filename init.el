@@ -24,6 +24,8 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -40,6 +42,7 @@
  '(ispell-program-name "/usr/local/bin/aspell")
  '(menu-bar-mode t)
  '(ns-alternate-modifier (quote none))
+ '(mac-option-modifier 'none)
  '(ns-command-modifier (quote meta))
  '(scroll-step 1)
  '(sgml-basic-offset 4)
