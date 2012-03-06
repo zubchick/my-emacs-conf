@@ -288,3 +288,14 @@ to the previously saved position"
 
 ;; markdown
 (setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
+
+
+;; browse url
+(defun rcy-browse-url-default-macosx-browser (url &optional new-window)
+  (interactive (browse-url-interactive-arg "URL: "))
+  (let ((url
+	 (if (aref (url-generic-parse-url url) 0)
+	     url
+	   (concat "http://" url))))
+    (start-process (concat "open " url) nil "open" url)))
+(setq browse-url-browser-function 'rcy-browse-url-default-macosx-browser)
