@@ -13,6 +13,8 @@
                       coffee-mode
                       
                       magit smex tabbar tabbar-ruler find-things-fast ;; tools
+                      ;; fill-column-indicator
+
                       pony-mode python-mode pymacs
                       flymake-csslint flymake-cursor
                       js2-mode  markdown-mode rainbow-mode
@@ -27,11 +29,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(browse-url-browser-function (quote browse-default-macosx-browser))
  '(column-number-mode t)
  '(current-language-environment "UTF-8")
- '(custom-safe-themes (quote ("7fe1e3de3e04afc43f9a3d3a8d38cd0a0efd9d4c" default)))
  '(default-input-method "russian-computer")
  '(desktop-path (quote ("." "~/.emacs.d/" "~")))
  '(display-time-mode t)
