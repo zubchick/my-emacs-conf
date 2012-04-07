@@ -9,6 +9,7 @@
 ;; Add in your own as you wish:
 (defvar my-packages '(starter-kit ;; required
                       starter-kit-lisp starter-kit-bindings starter-kit-eshell ;; sk plugins
+                      color-theme-solarized
                       clojure-mode clojure-test-mode rainbow-delimiters;; clojure
                       coffee-mode
                       
@@ -34,15 +35,16 @@
  '(browse-url-browser-function (quote browse-default-macosx-browser))
  '(column-number-mode t)
  '(current-language-environment "UTF-8")
+ '(custom-enabled-themes (quote (sanityinc-solarized-light)))
  '(default-input-method "russian-computer")
  '(desktop-path (quote ("." "~/.emacs.d/" "~")))
  '(display-time-mode t)
  '(global-hi-lock-mode t)
+ '(global-hl-line-mode t)
  '(initial-frame-alist (quote ((width . 168) (height . 47))))
  '(ispell-program-name "/usr/local/bin/aspell")
  '(menu-bar-mode t)
  '(ns-alternate-modifier (quote none))
- '(mac-option-modifier 'none)
  '(ns-command-modifier (quote meta))
  '(scroll-step 1)
  '(sgml-basic-offset 4)
