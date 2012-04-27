@@ -12,7 +12,7 @@
                       color-theme-solarized
                       clojure-mode clojure-test-mode rainbow-delimiters;; clojure
                       coffee-mode
-                      
+
                       magit smex tabbar tabbar-ruler find-things-fast ;; tools
                       ;; fill-column-indicator
 
@@ -41,6 +41,7 @@
  '(display-time-mode t)
  '(global-hi-lock-mode t)
  '(global-hl-line-mode t)
+ '(require-final-newline t)
  '(initial-frame-alist (quote ((width . 168) (height . 47))))
  '(ispell-program-name "/usr/local/bin/aspell")
  '(menu-bar-mode t)
