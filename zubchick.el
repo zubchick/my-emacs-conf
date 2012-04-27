@@ -238,6 +238,7 @@ to the previously saved position"
 ;; brew install xmlstarlet
 (add-hook 'css-mode-hook 'rainbow-mode)
 (add-hook 'html-mode-hook (lambda () (flyspell-mode 0)))
+(add-hook 'html-mode-hook (lambda () (flymake-mode 0)))
 
 ;; rainbow partness
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
@@ -299,3 +300,7 @@ to the previously saved position"
 	   (concat "http://" url))))
     (start-process (concat "open " url) nil "open" url)))
 (setq browse-url-browser-function 'rcy-browse-url-default-macosx-browser)
+
+
+;; haskell
+(add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
