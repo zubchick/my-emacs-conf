@@ -14,7 +14,7 @@
                       coffee-mode
 
                       magit smex tabbar tabbar-ruler find-things-fast ;; tools
-                      ;; fill-column-indicator
+                      fill-column-indicator
 
                       pony-mode python-mode pymacs
                       flymake-csslint flymake-cursor

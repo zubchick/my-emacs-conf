@@ -16,12 +16,13 @@
 (setq-default fill-column 80)
 (setq fci-rule-width 1)
 (setq fci-rule-color "lightblue")
-(require 'fill-column-indicator)
-
 
 ;;  ido-styled
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'guess)
+
+;; find-things-fast
+(defvar ftf-filetypes '("*") "All files")
 
 ;; хоткеи
 (global-set-key (kbd "M-p") 'ftf-find-file)
@@ -147,6 +148,8 @@ to the previously saved position"
   (whitespace-mode t)
   (fci-mode t)
   (clojure-test-maybe-enable)
+  (require 'highlight-parentheses)
+  (highlight-parentheses-mode t)
   (define-key slime-mode-map (kbd "C-c d") 'slime-java-describe)
   (define-key slime-repl-mode-map (kbd "C-c d") 'slime-java-describe)
   (define-key slime-mode-map (kbd "C-c D") 'slime-javadoc)
@@ -277,7 +280,6 @@ to the previously saved position"
 ;; coffee script
 (defun my-coffee ()
   (setq coffee-command "/usr/local/bin/coffee")
-  (require 'fill-column-indicator)
   (fci-mode t)
   (define-key coffee-mode-map (kbd "C-c C-b") 'coffee-compile-buffer)
   (define-key coffee-mode-map (kbd "C-c C-f") 'coffee-compile-file)
