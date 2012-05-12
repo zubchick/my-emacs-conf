@@ -10,10 +10,13 @@
 (defvar my-packages '(starter-kit ;; required
                       starter-kit-lisp starter-kit-bindings starter-kit-eshell ;; sk plugins
                       color-theme-solarized
-                      clojure-mode clojure-test-mode rainbow-delimiters;; clojure
+
+                      ;; clojure
+                      clojure-mode clojure-test-mode rainbow-delimiters
                       coffee-mode
 
-                      magit smex tabbar tabbar-ruler find-things-fast ;; tools
+                      ;; tools
+                      magit smex tabbar tabbar-ruler find-things-fast wgrep
                       fill-column-indicator
 
                       pony-mode python-mode pymacs
