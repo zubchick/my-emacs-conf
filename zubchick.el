@@ -179,7 +179,7 @@ to the previously saved position"
   ;; flymake
   (when (load "flymake" t)
     (defun flymake-pylint-init ()
-      (list "~/.emacs.d/zubchick/lintrunner.py"
+      (list "~/.emacs.d/lintrunner.py"
             (list buffer-file-name)))
     (add-to-list 'flymake-allowed-file-name-masks
                  '("^[^\*]+\\.py$" flymake-pylint-init)))
