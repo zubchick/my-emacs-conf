@@ -13,7 +13,10 @@
 
                       ;; clojure
                       clojure-mode clojure-test-mode rainbow-delimiters
+
                       coffee-mode
+
+                      yaml-mode
 
                       ;; tools
                       magit smex tabbar tabbar-ruler find-things-fast wgrep
