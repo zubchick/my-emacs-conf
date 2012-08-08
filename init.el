@@ -18,18 +18,16 @@
                       ;; clojure
                       clojure-mode clojure-test-mode rainbow-delimiters
 
-                      coffee-mode
-
-                      yaml-mode
-
                       ;; tools
-                      magit smex tabbar tabbar-ruler find-things-fast wgrep
+                      magit smex find-things-fast wgrep
                       fill-column-indicator
 
-                      pony-mode python-mode pymacs
+                      python-mode pymacs
                       flymake-csslint flymake-cursor
                       js2-mode  markdown-mode rainbow-mode
-                      yasnippet)
+                      yaml-mode coffee-mode
+                      yasnippet
+                      rect-mark)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
