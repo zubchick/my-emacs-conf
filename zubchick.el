@@ -82,25 +82,6 @@ to the previously saved position"
 (global-set-key (kbd "\e\e/") 'save-point-and-switch)
 (global-set-key (kbd "\e\e?") 'save-point-only)
 
-;; tabs
-(require 'tabbar)
-(setq EmacsPortable-global-tabbar 't)
-(require 'tabbar-ruler)
-
-(when (require 'tabbar nil t)
-  (setq tabbar-buffer-groups-function
-    	(lambda () (list "All Buffers")))
-  (setq tabbar-buffer-list-function
-    	(lambda ()
-    	  (remove-if
-    	   (lambda(buffer)
-    	     (find (aref (buffer-name buffer) 0) " *"))
-    	   (buffer-list))))
-  (tabbar-mode))
-
-(global-set-key (kbd "C-.") 'tabbar-forward-tab)
-(global-set-key (kbd "C-,") 'tabbar-backward-tab)
-
 ;; uniquify - for files with same names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
