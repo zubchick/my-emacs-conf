@@ -89,8 +89,11 @@ to the previously saved position"
 ;; Git
 (autoload 'magit-status "magit" nil t)
 
-;; clojure
-(setenv "PATH" (concat "/Users/zubchick/bin:" (shell-command-to-string "echo $PATH"))) ; hack
+;;; PATH
+(if (not (getenv "TERM_PROGRAM"))
+       (setenv "PATH"
+               (shell-command-to-string "source $HOME/.zshrc && printf $PATH")))
+
 
 (defun slime-java-describe (symbol-name)
   "Get details on Java class/instance at point."
