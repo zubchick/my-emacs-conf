@@ -288,3 +288,12 @@ to the previously saved position"
 (add-hook 'yaml-mode-hook
           '(lambda ()
              (define-key yaml-mode-map "<enter>" 'newline-and-indent)))
+
+;; popwin
+(setq display-buffer-function 'popwin:display-buffer)
+
+
+;; w3m
+(setq browse-url-browser-function 'w3m-browse-url)
+(global-set-key (kbd "C-x RET") 'browse-url-at-point)
+(setq w3m-use-cookies t)

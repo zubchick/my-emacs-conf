@@ -12,7 +12,7 @@
 
 ;; Add in your own as you wish:
 (defvar my-packages '(starter-kit ;; required
-                      starter-kit-lisp starter-kit-bindings starter-kit-eshell ;; sk plugins
+                      starter-kit-lisp starter-kit-bindings ;; sk plugins
                       color-theme-solarized
 
                       ;; clojure
@@ -20,7 +20,7 @@
 
                       ;; tools
                       magit smex find-things-fast wgrep
-                      fill-column-indicator
+                      fill-column-indicator popwin w3m
 
                       python-mode pymacs
                       flymake-csslint flymake-cursor
