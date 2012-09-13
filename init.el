@@ -27,7 +27,9 @@
                       js2-mode  markdown-mode rainbow-mode
                       yaml-mode coffee-mode
                       yasnippet
-                      rect-mark)
+                      rect-mark
+                      auctex)
+
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
