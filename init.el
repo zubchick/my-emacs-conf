@@ -24,7 +24,7 @@
                       multiple-cursors expand-region
 
                       ;; jumping
-                      jump-char ace-jump-char-mode
+                      jump-char ace-jump-mode
 
                       python pymacs flymake-python-pyflakes
                       flymake-csslint flymake-cursor
