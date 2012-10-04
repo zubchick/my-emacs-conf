@@ -16,6 +16,17 @@
 ;; jump-char
 (global-set-key (kbd "M-m") 'jump-char-forward)
 
+;; smart C-a
+(defun smart-line-beginning ()
+  "Move point to the beginning of text on the current line; if that is already
+the current position of point, then move it to the beginning of the line."
+  (interactive)
+  (let ((pt (point)))
+    (beginning-of-line-text)
+    (when (eq pt (point))
+      (beginning-of-line))))
+(global-set-key (kbd "C-a") 'smart-line-beginning)
+
 ;; DeskTop
 (desktop-save-mode t)
 (setq history-length 250
