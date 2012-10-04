@@ -23,6 +23,9 @@
                       popwin w3m
                       multiple-cursors expand-region
 
+                      ;; jumping
+                      jump-char ace-jump-char-mode
+
                       python pymacs flymake-python-pyflakes
                       flymake-csslint flymake-cursor
                       js2-mode  markdown-mode rainbow-mode

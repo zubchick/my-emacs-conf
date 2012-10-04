@@ -13,6 +13,9 @@
 (global-hi-lock-mode t)
 (menu-bar-mode t)
 
+;; jump-char
+(global-set-key (kbd "M-m") 'jump-char-forward)
+
 ;; DeskTop
 (desktop-save-mode t)
 (setq history-length 250
