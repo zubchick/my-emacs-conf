@@ -9,6 +9,7 @@
       initial-frame-alist  '((width . 168) (height . 47))
       x-select-enable-clipboard t)
 
+(put 'dired-find-alternate-file 'disabled nil)
 (global-hl-line-mode t)
 (global-hi-lock-mode t)
 (menu-bar-mode t)
@@ -25,15 +26,8 @@ the current position of point, then move it to the beginning of the line."
     (beginning-of-line-text)
     (when (eq pt (point))
       (beginning-of-line))))
-(global-set-key (kbd "C-a") 'smart-line-beginning)
-
-;; DeskTop
-(desktop-save-mode t)
-(setq history-length 250
-      desktop-path '("~/.emacs.d/"))
-(add-to-list 'desktop-globals-to-save 'file-name-history)
-(add-to-list 'desktop-modes-not-to-save 'Info-mode)
-(add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
+(add-hook 'prog-mode-hook
+          (lambda () (local-set-key (kbd "C-a") 'smart-line-beginning)))
 
 ;;  ido-styled
 (setq ido-enable-flex-matching t
@@ -100,58 +94,6 @@ to the previously saved position"
 ;; uniquify - for files with same names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
-
-(require 'imenu)
-(defun ido-goto-symbol ()
-  "Will update the imenu index and then use ido to select a
-   symbol to navigate to"
-  (interactive)
-  (imenu--make-index-alist)
-  (let ((name-and-pos '())
-        (symbol-names '()))
-    (flet ((addsymbols (symbol-list)
-                       (when (listp symbol-list)
-                         (dolist (symbol symbol-list)
-                           (let ((name nil) (position nil))
-                             (cond
-                              ((and (listp symbol) (imenu--subalist-p symbol))
-                               (addsymbols symbol))
-
-                              ((listp symbol)
-                               (setq name (car symbol))
-                               (setq position (cdr symbol)))
-
-                              ((stringp symbol)
-                               (setq name symbol)
-                               (setq position (get-text-property 1 'org-imenu-marker symbol))))
-
-                             (unless (or (null position) (null name))
-                               (add-to-list 'symbol-names name)
-                               (add-to-list 'name-and-pos (cons name position))))))))
-      (addsymbols imenu--index-alist))
-    (let* ((selected-symbol (ido-completing-read "Symbol? " symbol-names))
-           (position (cdr (assoc selected-symbol name-and-pos))))
-      (goto-char position))))
-
-(global-set-key (kbd "C-t") 'ido-goto-symbol)
-
-;; uniquify – for uniq buffer names
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
-
-;; deploy.sh
-(defun deploy-message (process event)
-  (message "Deploing project... Done."))
-
-(defun my-deploy ()
-  (interactive)
-  (message "Deploing project... ")
-  (save-buffer (current-buffer))
-  (start-process "deploy-process" "*Deploy*" "deploy.sh")
-  (set-process-sentinel (get-process "deploy-process") 'deploy-message))
-
-(global-set-key (kbd "C-c M-b") 'my-deploy)
-
 
 ;;; lang switcher
 ;;; http://ru-emacs.livejournal.com/82512.html
