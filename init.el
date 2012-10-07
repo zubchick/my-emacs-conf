@@ -29,7 +29,7 @@
                       python pymacs flymake-python-pyflakes
                       flymake-csslint flymake-cursor
                       js2-mode  markdown-mode rainbow-mode
-                      yaml-mode coffee-mode
+                      yaml-mode
                       yasnippet
                       rect-mark
                       auctex)
