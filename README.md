@@ -9,9 +9,9 @@
 
 
 ## sources
-* `Username` dir contains files with customization. You may delete
+* `username` dir contains files with customization. You may delete
 any of this files if you don't need them.
-* `Init.el` contains list of used packages in var my-packages
+* `init.el` contains list of used packages in var `my-packages`
 
 ## Custom shortcuts
 Mac cmd key is a emacs Meta key
