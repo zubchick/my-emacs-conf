@@ -9,3 +9,4 @@ places
 swank/
 url/
 /abbrev_defs
+/.mc-lists.el

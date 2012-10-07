@@ -7,29 +7,34 @@
     mv ~/.emacs.d/zubchick ~/.emacs.d/$(whoami)
     mv ~/.emacs.d/zubchick.el ~/.emacs.d/$(whoami).el
 
+
+## sources
+* `Username` dir contains files with customization. You may delete
+any of this files if you don't need them.
+* `Init.el` contains list of used packages in var my-packages
+
 ## Custom shortcuts
 Mac cmd key is a emacs Meta key
 
-### in git repo
+### in project
 * `M-p` - fuzzy find file
-* `M-F` - git-grep
+* `M-F` - project grep
 
 ### global
 * `M-z` - undo
+* `M-m` - jump to char
+* `C-c C-c` in jump-mode for ace-jump-mode
+* `C-a` - smart version of default `C-a`
 * `C-c C-g` - go to line
 * `C-x C-b` - ibuffer
-* `M-M-SPC` (`esc + M-space`) - collapse all apses to one
 * `C-c w` - close current buffer
-* `C-c k` - copy to kill ring from cursor to the end of line
+* `C-c k` - kill from cursor to the end of line
+* `C-=` - expand region
 * `M-M-?` - save point
 * `M-M-/` - save point and go to previous saved point
-* `C-.` - switch buffer forward
-* `C-,` - switch buffer backward
 * `C-t` - go to symbol (ido style)
 * `C-c M-b` - run [deploy.sh](https://github.com/mix86/deploy) (should be in your
   system PATH)
-
-### coffee script
-* `C-c C-b` - compile buffer
-* `C-c C-f` - compile file
-* `C-c C-r` - compile region
+* `C-.` - Mark next like this for multi cursors
+* `C-.` - Mark previous
+* `C-c C-<` - Mark all

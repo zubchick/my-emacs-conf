@@ -1,5 +1,6 @@
 ;;; zubchick.el - zubchick's emacs config
 (set-face-font 'default "Monaco-14")
+(setq default-input-method "UTF-8")
 (setq visible-bell nil
       scroll-step 1
       require-final-newline t
@@ -35,6 +36,7 @@ the current position of point, then move it to the beginning of the line."
 
 ;;; projectile
 (global-set-key (kbd "M-p") 'projectile-find-file)
+(global-set-key (kbd "M-F") 'projectile-grep)
 (projectile-global-mode)
 
 ;; expand-region
@@ -44,10 +46,8 @@ the current position of point, then move it to the beginning of the line."
 (global-set-key (kbd "M-z") 'undo)
 (global-set-key (kbd "C-c C-g") 'goto-line)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "\e M-SPC") 'just-one-space)
 (global-set-key (kbd "RET") 'newline-and-indent)
 
-;; отключаем СТРЕЛОЧКИ
 (global-unset-key (kbd "<right>"))
 (global-unset-key (kbd "<left>"))
 (global-unset-key (kbd "<up>"))
@@ -63,7 +63,7 @@ the current position of point, then move it to the beginning of the line."
 (global-set-key (kbd "C-c w") 'prh:kill-current-buffer)
 
 (defun copy-line (&optional arg)
-  " copy line from current point to the end of line"
+  "Kill line from current point to the end of line"
   (interactive)
   (toggle-read-only t)
   (kill-line arg)

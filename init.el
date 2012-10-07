@@ -16,11 +16,11 @@
                       zenburn-theme
 
                       ;; clojure
-                      clojure-mode clojure-test-mode rainbow-delimiters
+                      clojure-mode clojure-test-mode
 
                       ;; tools
                       magit smex projectile wgrep
-                      popwin w3m
+                      popwin w3m rainbow-delimiters
                       multiple-cursors expand-region
 
                       ;; jumping
