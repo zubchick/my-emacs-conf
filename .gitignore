@@ -10,3 +10,5 @@ swank/
 url/
 /abbrev_defs
 /.mc-lists.el
+tramp
+projectile.cache
