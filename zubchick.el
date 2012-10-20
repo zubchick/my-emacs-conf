@@ -54,10 +54,6 @@ the current position of point, then move it to the beginning of the line."
 (global-unset-key (kbd "<up>"))
 (global-unset-key (kbd "<down>"))
 
-(global-set-key [f2] 'kmacro-call-macro)
-(global-set-key [f3] 'kmacro-start-macro-or-insert-counter)
-(global-set-key [f4] 'kmacro-end-or-call-macro)
-
 (defun prh:kill-current-buffer ()
   (interactive)
   (kill-buffer (current-buffer)))
