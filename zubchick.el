@@ -16,7 +16,8 @@
 (menu-bar-mode t)
 
 ;; jump-char
-(global-set-key (kbd "M-m") 'jump-char-forward)
+(global-set-key (kbd "C-c M-m") 'jump-char-forward)
+(global-set-key (kbd "M-m") 'ace-jump-word-mode)
 
 ;; smart C-a
 (defun smart-line-beginning ()
