@@ -48,16 +48,13 @@ the current position of point, then move it to the beginning of the line."
 (global-set-key (kbd "C-c C-g") 'goto-line)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "C-c w") 'kill-this-buffer)
 
 (global-unset-key (kbd "<right>"))
 (global-unset-key (kbd "<left>"))
 (global-unset-key (kbd "<up>"))
 (global-unset-key (kbd "<down>"))
 
-(defun prh:kill-current-buffer ()
-  (interactive)
-  (kill-buffer (current-buffer)))
-(global-set-key (kbd "C-c w") 'prh:kill-current-buffer)
 
 (defun copy-line (&optional arg)
   "Kill line from current point to the end of line"
