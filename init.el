@@ -1,7 +1,7 @@
 (require 'package)
-(setq 'package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                          ("melpa" . "http://melpa.milkbox.net/packages/")))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
 
@@ -21,6 +21,10 @@
                       popwin w3m rainbow-delimiters
                       multiple-cursors expand-region
 
+                      ;; other
+                      deft
+
+
                       ;; jumping
                       jump-char ace-jump-mode
 
@@ -29,7 +33,7 @@
                       js2-mode  markdown-mode rainbow-mode
                       yaml-mode
                       yasnippet
-                      rect-mark
+                      rect-mark nav
                       auctex)
 
   "A list of packages to ensure are installed at launch.")
