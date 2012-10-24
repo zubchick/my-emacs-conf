@@ -50,12 +50,6 @@ the current position of point, then move it to the beginning of the line."
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-c w") 'kill-this-buffer)
 
-(global-unset-key (kbd "<right>"))
-(global-unset-key (kbd "<left>"))
-(global-unset-key (kbd "<up>"))
-(global-unset-key (kbd "<down>"))
-
-
 (defun copy-line (&optional arg)
   "Kill line from current point to the end of line"
   (interactive)
