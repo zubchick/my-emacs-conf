@@ -12,3 +12,4 @@ url/
 /.mc-lists.el
 tramp
 projectile.cache
+/zubchick/*_secret.el
