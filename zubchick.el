@@ -35,11 +35,6 @@ the current position of point, then move it to the beginning of the line."
 (setq ido-enable-flex-matching t
       ido-use-filename-at-point 'guess)
 
-;;; projectile
-(global-set-key (kbd "M-p") 'projectile-find-file)
-(global-set-key (kbd "M-F") 'projectile-grep)
-(projectile-global-mode)
-
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
