@@ -8,7 +8,9 @@
       ns-alternate-modifier nil
       ispell-program-name "/usr/local/bin/aspell"
       initial-frame-alist  '((width . 168) (height . 47))
-      x-select-enable-clipboard t)
+      x-select-enable-clipboard t
+      default-input-method "russian-computer")
+(set-language-environment "UTF-8")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (global-hl-line-mode t)
