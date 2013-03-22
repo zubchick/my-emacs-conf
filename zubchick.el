@@ -12,7 +12,6 @@
       default-input-method "russian-computer")
 (set-language-environment "UTF-8")
 
-(put 'dired-find-alternate-file 'disabled nil)
 (global-hl-line-mode t)
 (global-hi-lock-mode t)
 (menu-bar-mode t)

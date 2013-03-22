@@ -1,12 +1,3 @@
-(desktop-save-mode t)
-(setq history-length 250
-      desktop-path '("~/.emacs.d/"))
-(add-to-list 'desktop-globals-to-save 'file-name-history)
-(add-to-list 'desktop-modes-not-to-save 'Info-mode)
-(add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
-(global-set-key (kbd "M-P") 'my-desktop-change)
-
-
 ;;; http://scottfrazersblog.blogspot.ru/2009/12/emacs-named-desktop-sessions.html
 
 (require 'desktop)
@@ -84,3 +75,9 @@
   (my-desktop-save "last-session"))
 
 (add-hook 'kill-emacs-hook 'my-desktop-kill-emacs-hook)
+
+
+(add-to-list 'desktop-globals-to-save 'file-name-history)
+(add-to-list 'desktop-modes-not-to-save 'Info-mode)
+(add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
+(global-set-key (kbd "M-P") 'my-desktop-change)

@@ -18,12 +18,11 @@
 
                       ;; tools
                       magit smex projectile wgrep
-                      popwin w3m rainbow-delimiters
+                      popwin rainbow-delimiters
                       multiple-cursors expand-region
 
                       ;; other
                       deft
-
 
                       ;; jumping
                       jump-char ace-jump-mode
