@@ -79,22 +79,6 @@ to the previously saved position"
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;;; lang switcher
-;;; http://ru-emacs.livejournal.com/82512.html
-(mapcar*
- (lambda (r e) ;; r and e are matching Russian and English keysyms
-   ;; iterate over modifiers
-   (mapc (lambda (mod)
-           (define-key input-decode-map
-             (vector (list mod r)) (vector (list mod e))))
-         '(control meta super hyper))
-   ;; finally, if Russian key maps nowhere, remap it to the English key without
-   ;; any modifiers
-   (define-key local-function-key-map (vector r) (vector e)))
- "йцукенгшщзхъфывапролджэячсмитьбю"
- "qwertyuiop[]asdfghjkl;'zxcvbnm,.")
-
-
 ;; popwin
 (setq display-buffer-function 'popwin:display-buffer)
 
