@@ -2,6 +2,9 @@
   (setq tab-width 2)
   (define-key coffee-mode-map (kbd "M-r") 'coffee-compile-region)
   (define-key coffee-mode-map (kbd "M-R") 'coffee-compile-buffer)
-  (define-key coffee-mode-map (kbd "C-c M-f") 'coffee-compile-file))
+  (define-key coffee-mode-map (kbd "C-c M-f") 'coffee-compile-file)
+  (idle-highlight-mode t)
+  (push '("*coffee-compiled*" :height 25) popwin:special-display-config))
 
 (add-hook 'coffee-mode-hook 'my-coffee-hook)
+(add-hook 'coffee-mode-hook 'whitespace-mode)
