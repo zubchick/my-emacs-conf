@@ -8,4 +8,7 @@
             (push '("*Ack-and-a-half*" :height 25)
                   popwin:special-display-config)))
 
+(setq projectile-tags-command
+      "ctags --python-kinds=-i -Re %s %s")
+
 (projectile-global-mode)
