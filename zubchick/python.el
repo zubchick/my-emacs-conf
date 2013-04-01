@@ -9,7 +9,7 @@
   (idle-highlight-mode t)
 
   ;;yas
-  (yas/load-directory "~/.emacs.d/snippets")
+  ;; (yas/load-directory "~/.emacs.d/snippets")
   (flymake-python-pyflakes-load))
 
 (require 'python)
