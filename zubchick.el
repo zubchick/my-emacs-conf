@@ -80,8 +80,6 @@ to the previously saved position"
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;; popwin
-(setq display-buffer-function 'popwin:display-buffer)
 
 ;;; multi-cursors
 (global-set-key (kbd "C-c C-S-c") 'mc/edit-lines)
