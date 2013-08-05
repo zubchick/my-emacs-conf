@@ -9,7 +9,8 @@
       ispell-program-name "/usr/local/bin/aspell"
       initial-frame-alist  '((width . 168) (height . 47))
       x-select-enable-clipboard t
-      default-input-method "russian-computer")
+      default-input-method "russian-computer"
+      mouse-wheel-scroll-amount '(0.001))
 (set-language-environment "UTF-8")
 
 (global-hl-line-mode t)
