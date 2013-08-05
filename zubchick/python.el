@@ -15,3 +15,5 @@
 (require 'python)
 (autoload 'python-mode "python-mode" "Python editing mode." t)
 (add-hook 'python-mode-hook 'my-python-hook)
+(setq flymake-python-pyflakes-executable "flake8")
+(setq flymake-python-pyflakes-extra-arguments '("--ignore=E501"))
