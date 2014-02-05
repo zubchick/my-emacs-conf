@@ -29,10 +29,10 @@
                       ;; jumping
                       jump-char ace-jump-mode
 
-                      python pymacs
+                      python pymacs cython-mode
                       flymake-python-pyflakes flymake-csslint flymake-cursor
                       js2-mode markdown-mode rainbow-mode
-                      yaml-mode auctex)
+                      yaml-mode)
 
   "A list of packages to ensure are installed at launch.")
 
