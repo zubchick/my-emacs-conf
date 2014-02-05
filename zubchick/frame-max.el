@@ -1,0 +1,1 @@
+(toggle-frame-maximized)
