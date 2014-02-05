@@ -31,6 +31,7 @@
 
                       python pymacs cython-mode
                       flymake-python-pyflakes flymake-csslint flymake-cursor
+                      flycheck
                       js2-mode markdown-mode rainbow-mode
                       yaml-mode)
 
