@@ -1,4 +1,5 @@
 ;;; zubchick.el - zubchick's emacs config
+
 (set-face-font 'default "Monaco-14")
 (setq default-input-method "UTF-8")
 (setq visible-bell nil
@@ -7,7 +8,7 @@
       ns-command-modifier 'meta
       ns-alternate-modifier nil
       ispell-program-name "/usr/local/bin/aspell"
-      initial-frame-alist  '((width . 168) (height . 47))
+
       x-select-enable-clipboard t
       default-input-method "russian-computer"
       mouse-wheel-scroll-amount '(0.001))
@@ -26,6 +27,7 @@
   "Move point to the beginning of text on the current line; if that is already
 the current position of point, then move it to the beginning of the line."
   (interactive)
+
   (let ((pt (point)))
     (beginning-of-line-text)
     (when (eq pt (point))
@@ -80,9 +82,6 @@ to the previously saved position"
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-
-;;; multi-cursors
-(global-set-key (kbd "C-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;;; magit
+(setq magit-emacsclient-executable "/usr/local/bin/emacsclient")
+(server-start)
