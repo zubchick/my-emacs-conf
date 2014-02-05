@@ -6,6 +6,6 @@
 
 (setq projectile-enable-caching t)
 (setq projectile-tags-command
-      "ctags --exclude=\"*.min.*\" --python-kinds=-i -Re %s %s")
+      "ctags --exclude=\"*.min.*\" --python-kinds=-i -Re %s")
 
 (projectile-global-mode)
