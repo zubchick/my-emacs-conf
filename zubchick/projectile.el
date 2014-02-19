@@ -9,3 +9,5 @@
       "ctags --exclude=\"*.min.*\" --python-kinds=-i -Re %s")
 
 (projectile-global-mode)
+
+(setq ack-and-a-half-arguments '())     ; хак который нейтрализует баг -_-"
