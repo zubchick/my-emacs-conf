@@ -1,3 +1,5 @@
+;;; emacs wrapper for https://github.com/mix86/deploy
+
 (defun deploy-message (process event)
   (message "Deploing project... Done."))
 
