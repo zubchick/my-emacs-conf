@@ -13,15 +13,12 @@
                       starter-kit-lisp starter-kit-bindings ;; sk plugins
                       zenburn-theme
 
-                      ;; clojure
-                      clojure-mode clojure-test-mode
-
                       ;; tools
                       magit smex projectile wgrep
                       popwin rainbow-delimiters
                       multiple-cursors expand-region
-                      ack-and-a-half rect-mark nav
-                      yasnippet
+                      ag rect-mark nav
+                      ;; yasnippet
 
                       ;; other
                       deft
@@ -30,7 +27,6 @@
                       jump-char ace-jump-mode
 
                       python pymacs cython-mode
-                      flymake-python-pyflakes flymake-csslint flymake-cursor
                       flycheck
                       js2-mode markdown-mode rainbow-mode
                       yaml-mode)
