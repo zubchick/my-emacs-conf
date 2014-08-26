@@ -35,9 +35,6 @@ the current position of point, then move it to the beginning of the line."
 (add-hook 'prog-mode-hook
           (lambda () (local-set-key (kbd "C-a") 'smart-line-beginning)))
 
-;;  ido-styled
-(setq ido-enable-flex-matching t
-      ido-use-filename-at-point 'guess)
 
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -81,7 +78,3 @@ to the previously saved position"
 ;; uniquify - for files with same names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
-
-;;; magit
-(setq magit-emacsclient-executable "/usr/local/bin/emacsclient")
-(server-start)
