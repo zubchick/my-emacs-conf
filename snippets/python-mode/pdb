@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: pdb
-# expand-env: ((some-var some-value))
+# key: pdb
+# group: debugging
 # --
 import ipdb; ipdb.set_trace() # DEBUG

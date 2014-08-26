@@ -1,4 +1,5 @@
 # -*- mode: snippet -*-
-# name: utfc
+# name: utf-8 encoding
+# key: utfc
 # --
 # coding: utf-8

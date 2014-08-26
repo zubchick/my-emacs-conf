@@ -18,7 +18,7 @@
                       popwin rainbow-delimiters
                       multiple-cursors expand-region
                       ag rect-mark nav
-                      ;; yasnippet
+                      yasnippet
 
                       ;; other
                       deft
