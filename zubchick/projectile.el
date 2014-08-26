@@ -2,11 +2,14 @@
 (require 'projectile)
 
 (define-key projectile-mode-map (kbd "M-p") 'projectile-find-file)
-(define-key projectile-mode-map (kbd "M-F") 'projectile-ack)
+(define-key projectile-mode-map (kbd "M-F") 'projectile-ag)
 
 (setq projectile-enable-caching t)
 (setq projectile-tags-command
-      "ctags --exclude=\"*.min.*\" --python-kinds=-i -Re %s")
+      (concat projectile-tags-command
+              " --exclude=\"*.min.*\" --python-kinds=-i"))
+
+(setq projectile-mode-line-lighter "Project")
 
 (projectile-global-mode)
 
