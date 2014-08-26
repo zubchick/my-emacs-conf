@@ -15,3 +15,4 @@ projectile.cache
 /zubchick/*_secret.el
 /projectile-bookmarks.eld
 *.elc
+/bookmarks
