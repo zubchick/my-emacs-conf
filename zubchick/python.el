@@ -7,11 +7,8 @@
   (idle-highlight-mode t)
   (flycheck-mode t)
 
+  (electric-indent-mode 0)
+
   )
 
 (add-hook 'python-mode-hook 'my-python-hook)
-
-;;; jedi
-(setq jedi:tooltip-method '(pos-tip))
-(add-hook 'python-mode-hook 'auto-complete-mode)
-(add-hook 'python-mode-hook 'jedi:ac-setup)
