@@ -69,9 +69,18 @@
 
 (defun my-desktop-kill-emacs-hook ()
   "Save desktop before killing emacs."
+  ;; try to save in current desktop name
+  (let ((name (my-desktop-get-current-name)))
+    (if name
+        (my-desktop-save name)))
+
+  ;; save to last session
   (when (file-exists-p (concat my-desktop-session-dir "last-session"))
     (setq desktop-file-modtime
-          (nth 5 (file-attributes (desktop-full-file-name (concat my-desktop-session-dir "last-session"))))))
+          (nth 5 (file-attributes
+                  (desktop-full-file-name (concat
+                                           my-desktop-session-dir
+                                           "last-session"))))))
   (my-desktop-save "last-session"))
 
 (add-hook 'kill-emacs-hook 'my-desktop-kill-emacs-hook)
