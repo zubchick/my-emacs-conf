@@ -11,3 +11,5 @@
 (push '("*Shell Command Output*" :tail t :noselect t)
       popwin:special-display-config)
 (push '(compilation-mode :tail t :noselect t) popwin:special-display-config)
+
+(push '("*anaconda-doc*") popwin:special-display-config)
