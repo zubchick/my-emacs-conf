@@ -13,3 +13,6 @@
 (push '(compilation-mode :tail t :noselect t) popwin:special-display-config)
 
 (push '("*anaconda-doc*") popwin:special-display-config)
+
+(push '("*Flycheck errors*" :height 25) popwin:special-display-config)
+(push '("*haskell-compilation*" :tail t :noselect t) popwin:special-display-config)
