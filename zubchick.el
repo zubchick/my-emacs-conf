@@ -78,3 +78,14 @@ to the previously saved position"
 ;; uniquify - for files with same names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
+
+;;; magit
+(setq magit-last-seen-setup-instructions "1.4.0")
+
+
+;;; python consts
+(setq python-shell-exec-path "/Users/zubchick/anaconda/bin/"
+      elpy-rpc-python-command "/Users/zubchick/anaconda/bin/python"
+      python-shell-interpreter "/Users/zubchick/anaconda/bin/python"
+)
