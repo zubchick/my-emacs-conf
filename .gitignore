@@ -16,3 +16,5 @@ projectile.cache
 /projectile-bookmarks.eld
 *.elc
 /bookmarks
+request/
+/snippets/python-mode/.yas-compiled-snippets.el
