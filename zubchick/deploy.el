@@ -11,3 +11,4 @@
   (set-process-sentinel (get-process "deploy-process") 'deploy-message))
 
 (global-set-key (kbd "C-c M-b") 'my-deploy)
+(add-hook 'after-save-hook 'my-deploy)
