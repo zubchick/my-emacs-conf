@@ -11,7 +11,10 @@
 
       x-select-enable-clipboard t
       default-input-method "russian-computer"
-      mouse-wheel-scroll-amount '(0.001))
+      mouse-wheel-scroll-amount '(0.001)
+      frame-resize-pixelwise t
+      )
+
 (set-language-environment "UTF-8")
 
 (global-hl-line-mode t)
