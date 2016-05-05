@@ -1,4 +1,7 @@
 ;; python
+(require 'python)
+(require 'projectile)
+
 (defun my-python-hook ()
   (setq py-ident-offset 4
         py-smart-indentation t
@@ -10,6 +13,7 @@
   (electric-indent-mode 0)
 
   (local-set-key (kbd "M-*") 'pop-tag-mark)
+  (local-set-key (kbd "C-c t") 'copy-test-path)
   )
 
 (elpy-enable)
@@ -24,3 +28,18 @@
         )
 
   (add-to-list 'elpy-modules 'flycheck-mode))
+
+(defun copy-test-path ()
+  (interactive)
+  ;; if you don't use projectile set project-root manually
+  (let* ((project-root (projectile-project-root))
+        (path (get-test-path project-root)))
+    (message path)
+    (kill-new path)))
+
+(defun get-test-path (project-root)
+  (let* ((file (buffer-file-name))
+         (relative (file-relative-name file project-root))
+         (defun-name (python-info-current-defun))
+         (test-name (replace-regexp-in-string "\\." "::" defun-name)))
+    (concat relative "::" test-name)))
