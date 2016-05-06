@@ -39,7 +39,8 @@
 
 (defun get-test-path (project-root)
   (let* ((file (buffer-file-name))
-         (relative (file-relative-name file project-root))
-         (defun-name (python-info-current-defun))
-         (test-name (replace-regexp-in-string "\\." "::" defun-name)))
-    (concat relative "::" test-name)))
+         (relative (file-relative-name file project-root)))
+    (if-let ((defun-name (python-info-current-defun))
+             (test-name (replace-regexp-in-string "\\." "::" defun-name)))
+        (concat relative "::" test-name)
+      relative)))
