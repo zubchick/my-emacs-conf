@@ -1,6 +1,7 @@
 
 .emacs.desktop*
 .ido.last
+ido.last
 .smex-items
 elpa/
 eproject.lst
@@ -18,3 +19,7 @@ projectile.cache
 /bookmarks
 request/
 /snippets/python-mode/.yas-compiled-snippets.el
+/TAGS
+/backups/
+/auto-save-list/
+recentf
