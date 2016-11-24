@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: #[warn(lint_check)]
+# key: warn
+# type: snippet
+# --
+#[warn(${1:lint_check})]$0

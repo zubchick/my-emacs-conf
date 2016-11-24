@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: unsafe { … }
+# key: unsafe
+# type: snippet
+# --
+unsafe {
+    ${1:()}
+}$0

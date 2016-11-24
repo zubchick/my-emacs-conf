@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: loop { … }
+# key: loop
+# type: snippet
+# --
+loop {
+    ${1:()}
+}$0

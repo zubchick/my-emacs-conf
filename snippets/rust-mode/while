@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: while cond { … }
+# key: while
+# type: snippet
+# --
+while {$1:cond} {
+    {$2:()}
+}$0

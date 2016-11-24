@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: #[deny(lint_check)]
+# key: deny
+# type: snippet
+# --
+#[deny(${1:lint_check})]$0
