@@ -17,6 +17,8 @@
                       starter-kit-lisp starter-kit-bindings ;; sk plugins
                       zenburn-theme
 
+                      exec-path-from-shell ; macosx path hacks
+
                       ;; tools
                       magit smex projectile wgrep
                       popwin rainbow-delimiters

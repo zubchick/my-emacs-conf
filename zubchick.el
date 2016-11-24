@@ -82,8 +82,5 @@ to the previously saved position"
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;;; python consts
-(setq python-shell-exec-path "/Users/zubchick/anaconda/bin/"
-      elpy-rpc-python-command "/Users/zubchick/anaconda/bin/python"
-      python-shell-interpreter "/Users/zubchick/anaconda/bin/python"
-)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))

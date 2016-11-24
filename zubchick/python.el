@@ -17,7 +17,6 @@
   )
 
 (elpy-enable)
-(elpy-use-ipython)
 (add-hook 'elpy-mode-hook 'my-python-hook)
 
 
@@ -44,3 +43,5 @@
              (test-name (replace-regexp-in-string "\\." "::" defun-name)))
         (concat relative "::" test-name)
       relative)))
+
+(exec-path-from-shell-copy-env "PYTHONPATH")
