@@ -3,15 +3,18 @@
 (set-face-font 'default "Monaco-14")
 (setq default-input-method "UTF-8")
 (setq visible-bell nil
-      scroll-step 1
       require-final-newline t
       ns-command-modifier 'meta
       ns-alternate-modifier nil
-      ispell-program-name "/usr/local/bin/aspell"
-
       x-select-enable-clipboard t
       default-input-method "russian-computer"
+
+      ;; scroll
+      scroll-step 1
+      mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil))
+      mouse-wheel-progressive-speed nil
       mouse-wheel-scroll-amount '(0.001)
+
       frame-resize-pixelwise t
       )
 
