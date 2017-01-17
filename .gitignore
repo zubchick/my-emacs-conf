@@ -1,4 +1,3 @@
-
 .emacs.desktop*
 .ido.last
 ido.last
@@ -23,3 +22,7 @@ request/
 /backups/
 /auto-save-list/
 recentf
+.agignore
+eshell/
+/network-security.data
+/var/
