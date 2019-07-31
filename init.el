@@ -1,12 +1,11 @@
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("elpy" . "http://jorgenschaefer.github.io/packages/")
-                         ))
-
-(setq package-check-signature nil)
-
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (setq package-archives (list (cons "melpa" (concat proto "://melpa.org/packages/"))
+                               ;; (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/"))
+                               (cons "gnu" (concat  proto "://elpa.gnu.org/packages/"))
+                               )))
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -16,6 +15,7 @@
 (defvar my-packages '(starter-kit ;; required
                       starter-kit-lisp starter-kit-bindings ;; sk plugins
                       zenburn-theme
+                      use-package
 
                       exec-path-from-shell ; macosx path hacks
 
@@ -25,13 +25,8 @@
                       multiple-cursors expand-region
                       ag rect-mark nav
                       yasnippet
-
-                      ;; other
-                      deft
-
-                      ;; jumping
+                      neotree
                       jump-char ace-jump-mode
-
                       python pymacs cython-mode
                       flycheck
                       js2-mode markdown-mode rainbow-mode

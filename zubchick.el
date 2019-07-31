@@ -1,6 +1,6 @@
 ;;; zubchick.el - zubchick's emacs config
 
-(set-face-font 'default "Monaco-14")
+(set-face-font 'default "Inconsolata LGC:pixelsize=14:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
 (setq default-input-method "UTF-8")
 (setq visible-bell nil
       require-final-newline t
@@ -87,3 +87,6 @@ to the previously saved position"
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+
+;;; tab width
+(setq-default tab-width 4)

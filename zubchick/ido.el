@@ -1,4 +1,4 @@
-(require 'ido-ubiquitous)
+(require 'ido-completing-read+)
 
 (setq ido-enable-flex-matching t
       ido-create-new-buffer 'always)
