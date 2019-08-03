@@ -10,14 +10,14 @@
   (idle-highlight-mode t)
   (flymake-mode 0)
   (flycheck-mode t)
-  (electric-indent-mode 0)
+  (electric-indent-mode 0))
 
-  (local-set-key (kbd "M-*") 'pop-tag-mark)
-  (local-set-key (kbd "C-c t") 'copy-test-path)
-  )
-
-(elpy-enable)
-(add-hook 'elpy-mode-hook 'my-python-hook)
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable)
+  :hook my-python-hook
+  :bind (("C-c t" . copy-test-path)))
 
 
 (when (require 'flycheck nil t)
