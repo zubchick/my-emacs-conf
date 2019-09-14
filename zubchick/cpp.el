@@ -2,7 +2,9 @@
 
 (use-package lsp-mode
   :ensure t
-  :commands lsp)
+  :commands lsp
+  :config
+  (setq lsp-enable-file-watchers nil))
 
 (use-package lsp-ui
   :ensure t
@@ -31,8 +33,11 @@
   (require 'ccls)
   (lsp)
   (setq lsp-prefer-flymake nil)
+  (setq tab-width 4)
   (flymake-mode 0)
-  (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc)))
+  (ccls-code-lens-mode 0)
+  (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
+  )
 
 
 (use-package ccls
@@ -40,5 +45,10 @@
   :ensure-system-package ccls
   :mode ("\\.h\\'" . c++-mode)
   :hook ((c-mode c++-mode objc-mode) . my-ccls-hook)
+  :bind (("C-c o" . ff-find-other-file))
   :config
   (setq ccls-sem-highlight-method 'font-lock))
+
+(use-package clang-format+
+  :ensure t
+  :hook (c++-mode . clang-format+-mode))
