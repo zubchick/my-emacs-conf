@@ -1,6 +1,4 @@
 ;; python
-(require 'python)
-(require 'projectile)
 
 (defun my-python-hook ()
   (setq py-ident-offset 4
@@ -10,23 +8,29 @@
   (idle-highlight-mode t)
   (flymake-mode 0)
   (flycheck-mode t)
+  (highlight-indentation-mode 0)
   (electric-indent-mode 0))
 
 (use-package elpy
   :ensure t
   :init
-  (elpy-enable)
+  (progn
+      (setq python-shell-interpreter "python3"
+            python-shell-interpreter-args "-m IPython --simple-prompt -i"
+
+            flycheck-python-pycompile-executable "python3"
+            flycheck-python-pylint-executable "python3"
+            flycheck-python-flake8-executable "python3"
+            doom-modeline-python-executable "python3"
+            elpy-rpc-python-command "python3")
+      (elpy-enable))
+
   :hook my-python-hook
   :bind (("C-c t" . copy-test-path)))
 
-
-(when (require 'flycheck nil t)
-  (setq elpy-default-minor-modes (delete 'flymake-mode elpy-modules)
-        elpy-default-minor-modes (delete 'elpy-module-flymake elpy-modules)
-        elpy-default-minor-modes (delete 'elpy-module-highlight-indentation elpy-modules)
-        )
-
-  (add-to-list 'elpy-modules 'flycheck-mode))
+(when (load "flycheck" t t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 (defun copy-test-path ()
   (interactive)
