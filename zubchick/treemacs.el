@@ -8,7 +8,6 @@
   :ensure t
   :defer t
   :init
-  (treemacs-tag-follow-mode)
   (global-set-key (kbd "M-[") 'treemacs)
   (global-set-key (kbd "M-]") 'my-treemacs-back-and-forth))
 

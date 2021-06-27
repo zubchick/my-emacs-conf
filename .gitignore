@@ -27,3 +27,7 @@ eshell/
 /network-security.data
 /var/
 transient/
+.DS_Store
+/elpy
+/.cache
+/.lsp*

@@ -48,7 +48,3 @@
   :bind (("C-c o" . ff-find-other-file))
   :config
   (setq ccls-sem-highlight-method 'font-lock))
-
-(use-package clang-format+
-  :ensure t
-  :hook (c++-mode . clang-format+-mode))
